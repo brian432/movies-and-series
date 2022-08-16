@@ -1,0 +1,16 @@
+.container-movie .div-img{
+    width: 100%;
+}
+
+.container-movie .div-img img{
+    width: 100%;
+    height: auto;
+}
+
+.container-dates{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
