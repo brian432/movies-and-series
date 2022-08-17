@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$color-background: rgb(1, 7, 22);
+$color-background2:rgb(13, 18, 29);
+
+html{
+    background-color:rgb(13, 18, 29);
+}
+
+//clases globales 
+li{
+    list-style: none;
+    a{
+        text-decoration: none!important;
+        color: white;
+    }
+}
+
+html{
+    min-height: 100vh;
+    min-width: 320px;
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color:rgb(13, 18, 29);
+    font-family: "Readex Pro", sans-serif;
+    color: white;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+    background: rgb(13, 18, 29);
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.247);
+    border-radius:10px;
+    border-right:2px solid rgb(13, 18, 29);
+}
+
+@import '../components/header/header';
+@import '../components/search/search';
+@import '../components/buttons/buttons';
+@import '../components/carousel/carousel';
+@import '../components/movie/movie';
+@import '../components/views/details/details';
+@import '../components/views/home/home';

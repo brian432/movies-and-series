@@ -1,0 +1,14 @@
+.container-popular-movies{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 100px;
+    padding: 1rem 3rem;
+}
+
+@media (max-width: 900px) {
+    .container-popular-movies{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

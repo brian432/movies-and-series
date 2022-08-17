@@ -1,5 +1,6 @@
-import './movie.css'
 import { useNavigate } from 'react-router-dom'
+
+import img from '../../no-img.jpg'
 
 export const Movie = ({
     movie: {
@@ -20,7 +21,7 @@ export const Movie = ({
     return (
         <div className="container-movie" onClick={handleClick}>
             <div className="div-img">
-                <img src={`${IMG_API}${poster_path ? poster_path : backdrop_path}`} alt={title} />
+                <img src={poster_path ?`${IMG_API}${poster_path}`: img} alt={title} />
             </div>
             <div className='container-dates'>
                 <h3 className="title">{title}</h3>
