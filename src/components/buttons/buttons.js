@@ -1,16 +1,20 @@
+import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
+import { GlobalContext } from '../../context/GlobalState';
 import { handlePage } from '../../utils/handlePage'
 
-export const Buttons = ({lengthMovies}) => {
+const Buttons = ({lengthMovies}) => {
     let query = new URLSearchParams(window.location.search);
     let search = query.get('search');
+
+    const {series} = useContext(GlobalContext)
 
     const { page, genre } = useParams()
     const navigate = useNavigate()
 
     const handlePageButton = (e) => {
         let pagina = e.target.name
-        handlePage(pagina, page, genre, navigate, search)
+        handlePage(pagina, page, genre, navigate, search, series)
     }
     return (
         <div className='container-buttons'>
@@ -27,3 +31,4 @@ export const Buttons = ({lengthMovies}) => {
         </div>
     )
 }
+export default React.memo(Buttons)

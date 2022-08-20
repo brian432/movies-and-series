@@ -1,31 +1,15 @@
-import { createContext, useReducer } from "react";
-import { AppReducer } from "./AppReducer";
+import { createContext} from "react";
+import { useLocation } from "react-router-dom";
 
-const initialState = {
-    serie: false
-}
-
-export const GlobalContext = createContext(initialState)
+export const GlobalContext = createContext()
 
 export const GlobalProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState);
-
-    const cambiarASeries = () =>{
-        dispatch({
-            type:"CAMBIAR_A_SERIES",
-        })
-    }
-    const cambiarAPeliculas = () =>{
-        dispatch({
-            type:"CAMBIAR_A_PELICULAS",
-        })
-    }
+    const { pathname } = useLocation()
+    const series = pathname.split("/")[1]
 
     return (
-        <GlobalContext.Provider value={{ 
-            serie: state.serie,
-            cambiarASeries,
-            cambiarAPeliculas
+        <GlobalContext.Provider value={{
+            series
         }}>
             {children}
         </GlobalContext.Provider>

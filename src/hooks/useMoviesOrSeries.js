@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom'
+import { GlobalContext } from "../context/GlobalState"
 import { getMoviesOrSeries, getMoviesOrSeriesDetails, getPopularGenres, getSearchMoviesOrSeries } from "../services/fetchMoviesOrSeries"
-import { useContext } from "react"
-import { GlobalContext } from '../context/GlobalState'
+
 
 export const useMoviesOrSeries = () => {
     const [moviesOrSeries, setMoviesOrSeries] = useState([])
-    const { serie } = useContext(GlobalContext)
 
     let query = new URLSearchParams(window.location.search);
     let search = query.get('search');
 
     const { page, genre } = useParams()
 
+    const {series} = useContext(GlobalContext)
 
     useEffect(() => {
         search !== null ?
-            getSearchMoviesOrSeries(page, search, serie).then(searchMovies => setMoviesOrSeries(searchMovies.results)) :
+            getSearchMoviesOrSeries(page, search, series).then(searchMovies => setMoviesOrSeries(searchMovies.results)) :
             genre !== undefined ?
-                getPopularGenres(page, genre, serie).then(popularGenres => setMoviesOrSeries(popularGenres.results)) :
-                getMoviesOrSeries(page, serie).then(movieOrSerie => setMoviesOrSeries(movieOrSerie.results))
-    }, [page, genre, search, serie])
+                getPopularGenres(page, genre, series).then(popularGenres => setMoviesOrSeries(popularGenres.results)) :
+                getMoviesOrSeries(page, series).then(movieOrSerie => setMoviesOrSeries(movieOrSerie.results))
+    }, [page, genre, search, series])
 
     return moviesOrSeries
 }
@@ -30,19 +30,20 @@ export const useMoviesOrSeriesDetails = () => {
     const [cast, setCast] = useState()
     const [similarMovies, setSimilarMovies] = useState()
     const [trailers, setTrailers] = useState()
-    const { serie } = useContext(GlobalContext)
 
-    const { movieID} = useParams()
+    const {series} = useContext(GlobalContext)
+
+    const { movieID } = useParams()
 
     useEffect(() => {
-        getMoviesOrSeriesDetails(movieID, serie)
+        getMoviesOrSeriesDetails(movieID, series)
             .then(({ details, cast, similar, trailers }) => {
                 setDetails(details)
                 setCast(cast?.cast?.slice(0, 5))
                 setSimilarMovies(similar.results)
                 setTrailers(trailers?.results?.slice(0, 5))
             })
-    }, [movieID, serie])
+    }, [movieID, series])
 
     return { details, cast, similarMovies, trailers }
 }

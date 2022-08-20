@@ -20,8 +20,8 @@ export const Details = () => {
                     <img src={details?.poster_path ? `${IMG_API}${details?.poster_path}` : img} alt={details?.title} />
                 </div>
                 <div className='info-movies'>
-                    <h1 className='titulo'>{details?.title ? details?.title: details?.original_name}<span className='puntaje'>{details?.vote_average?.toFixed(1)}</span></h1>
-                    <p>Fecha de estreno: {details?.release_date}</p>
+                    <h1 className='titulo'>{details?.title || details?.original_name}<span className='puntaje'>{details?.vote_average?.toFixed(1)}</span></h1>
+                    <p>Fecha de estreno: {details?.release_date || details?.first_air_date}</p>
                     <p className="descripcion">{details?.overview}</p>
                     <div>
                         <h2>Cast</h2>
