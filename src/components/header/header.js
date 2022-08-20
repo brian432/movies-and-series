@@ -10,12 +10,13 @@ export const Header = () => {
     const [clases, setClases] = useState("");
     const [generos, setGeneros] = useState([]);
     const [menu, setMenu] = useState("");
-    const { serie, cambiarAPeliculas, cambiarASeries } = useContext(GlobalContext)
     const navigate = useNavigate();
 
+    const { series } = useContext(GlobalContext)
+
     useEffect(() => {
-        getGenresMoviesOrSeries(serie).then(generos => setGeneros(generos.genres))
-    }, [serie]);
+        getGenresMoviesOrSeries(series).then(generos => setGeneros(generos.genres))
+    }, [series]);
 
     const handleClases = useCallback(() => {
         setClases("");
@@ -27,26 +28,23 @@ export const Header = () => {
         menu === "" ? setMenu("encendido") : setMenu("")
     }, [menu])
 
+
     const handleSubmit = useCallback((search) => {
         setMenu("")
-        navigate(`/?search=${search}`)
-    }, [navigate])
-
-    const handleSwitch = useCallback(() => {
-        serie ? cambiarAPeliculas() : cambiarASeries()
-    },[serie, cambiarAPeliculas, cambiarASeries])
+        navigate(`${series === "series" ? "/series" : ""}/?search=${search}`)
+    }, [navigate, series])
 
     return (
         <header>
-            <Link to={`/`} className="logo" onClick={handleClases}>{serie ? "Series" : "Peliculas"}</Link>
-            <Link to={`/`} className="switch" onClick={handleSwitch}>{serie ? "Peliculas":"Series"}</Link>
+            <Link to={`/${series === "series" ? "series" : ""}`} className="logo" >{series === "series" ? "Series" : "Peliculas"}</Link>
+            <Link to={`/${series === "series" ? "" : "series"}`} className="switch" >{series === "series" ? "Peliculas" : "Series"}</Link>
             <div className={`${menu !== '' ? 'nav-active container-generos' : 'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>
                     <ul className={`${clases === "" ? "" : "genero-active"} nav-links`}>
                         {generos.map((genero, indice) =>
                             <li key={indice}>
-                                <Link to={`/genre/${genero.id}`} className="links hover" key={indice} onClick={handleClases} name={genero.name} id={genero.id}>{genero.name}</Link>
+                                <Link to={`${series === "series" ? "/series" : ""}/genre/${genero.id}`} className="links hover" key={indice} onClick={handleClases} name={genero.name} id={genero.id}>{genero.name}</Link>
                             </li>
                         )}
                     </ul>

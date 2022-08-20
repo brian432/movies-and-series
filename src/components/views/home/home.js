@@ -1,7 +1,7 @@
 import { useMoviesOrSeries } from "../../../hooks/useMoviesOrSeries"
 
 import { Movie } from "../../movie/movie"
-import { Buttons } from "../../buttons/buttons"
+import Buttons from "../../buttons/buttons"
 import { scroll } from "../../../utils/scroll"
 
 export const Home = () => {

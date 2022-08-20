@@ -9,7 +9,6 @@ import { Movie } from "../movie/movie";
 
 import { useResize } from "../../hooks/useResize";
 
-
 export const CarouselSimilarMovies = ({ similarMovies }) => {
 
     const {isPhone} = useResize()
