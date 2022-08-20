@@ -69,9 +69,14 @@ header .logo {
   font-family: "Monoton", cursive;
   font-weight: 400;
   width: 350px;
-  font-size: clamp(1.8rem, 2vw, 3rem);
+  font-size: clamp(1.4rem, 2vw, 3rem);
   text-decoration: none;
   color: white;
+}
+
+header .switch {
+  color: white;
+  text-decoration: none;
 }
 
 header .container-generos {

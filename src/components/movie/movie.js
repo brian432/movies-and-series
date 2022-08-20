@@ -5,7 +5,7 @@ import img from '../../no-img.jpg'
 export const Movie = ({
     movie: {
         title,
-        backdrop_path,
+        original_name,
         poster_path,
         vote_average,
         id
@@ -24,7 +24,7 @@ export const Movie = ({
                 <img src={poster_path ?`${IMG_API}${poster_path}`: img} alt={title} />
             </div>
             <div className='container-dates'>
-                <h3 className="title">{title}</h3>
+                <h3 className="title">{title?title:original_name}</h3>
                 <span>{vote_average}</span>
             </div>
         </div>

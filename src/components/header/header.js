@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
+import { GlobalContext } from "../../context/GlobalState";
 import { Link, useNavigate } from "react-router-dom";
-import { getGenresMovies } from "../../services/fetchGenresMovies";
-import {scroll} from '../../utils/scroll'
-
+import { getGenresMoviesOrSeries } from "../../services/fetchGenresMoviesOrSeries";
+import { scroll } from '../../utils/scroll'
 
 import Search from '../search/search'
 
@@ -10,31 +10,36 @@ export const Header = () => {
     const [clases, setClases] = useState("");
     const [generos, setGeneros] = useState([]);
     const [menu, setMenu] = useState("");
-    
+    const { serie, cambiarAPeliculas, cambiarASeries } = useContext(GlobalContext)
     const navigate = useNavigate();
-    
+
     useEffect(() => {
-        getGenresMovies().then(generos => setGeneros(generos.genres))
-    }, []);
+        getGenresMoviesOrSeries(serie).then(generos => setGeneros(generos.genres))
+    }, [serie]);
 
     const handleClases = useCallback(() => {
         setClases("");
         setMenu("");
         scroll()
-    },[])
+    }, [])
 
     const handleMenu = useCallback(() => {
         menu === "" ? setMenu("encendido") : setMenu("")
-    },[menu])
+    }, [menu])
 
     const handleSubmit = useCallback((search) => {
         setMenu("")
         navigate(`/?search=${search}`)
     }, [navigate])
 
+    const handleSwitch = useCallback(() => {
+        serie ? cambiarAPeliculas() : cambiarASeries()
+    },[serie, cambiarAPeliculas, cambiarASeries])
+
     return (
         <header>
-            <Link to="/" className="logo" onClick={handleClases}>Peliculas</Link>
+            <Link to={`/`} className="logo" onClick={handleClases}>{serie ? "Series" : "Peliculas"}</Link>
+            <Link to={`/`} className="switch" onClick={handleSwitch}>{serie ? "Peliculas":"Series"}</Link>
             <div className={`${menu !== '' ? 'nav-active container-generos' : 'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>
