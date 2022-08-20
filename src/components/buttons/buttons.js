@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { handlePage } from '../../utils/handlePage'
 
-
 export const Buttons = ({lengthMovies}) => {
     let query = new URLSearchParams(window.location.search);
     let search = query.get('search');

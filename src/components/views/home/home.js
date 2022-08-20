@@ -1,11 +1,11 @@
-import { useMovies } from "../../../hooks/useMovies"
+import { useMoviesOrSeries } from "../../../hooks/useMoviesOrSeries"
 
 import { Movie } from "../../movie/movie"
 import { Buttons } from "../../buttons/buttons"
 import { scroll } from "../../../utils/scroll"
 
 export const Home = () => {
-    const movies = useMovies()
+    const movies = useMoviesOrSeries()
     scroll()
     return (
         <main>
