@@ -1,3 +1,11 @@
+.div-artist{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: -80px;
+    padding: 0 3rem;
+    letter-spacing: 2px;
+}
+
 .container-popular-movies{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -7,7 +15,7 @@
 }
 
 @media (max-width: 900px) {
-    .container-popular-movies{
+    .container-popular-movies, .div-artist{
         padding-left: 1rem;
         padding-right: 1rem;
     }

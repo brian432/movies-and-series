@@ -1,4 +1,4 @@
-import React,{ useContext} from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalState'
 
@@ -10,15 +10,20 @@ export const Movie = ({
         original_name,
         poster_path,
         vote_average,
-        id
+        id,
+        media_type
     }
 }) => {
     const navigate = useNavigate()
-    
-    const {series } = useContext(GlobalContext)
+
+    const { firstPathName } = useContext(GlobalContext)
 
     const handleClick = () => {
-        navigate(`${series === "series" ? "/series" : ""}/details/${id}`)
+        if (media_type !== undefined) {
+            navigate(`${media_type === "tv" ? `/series/details/${id}` : `/details/${id}`}`)
+        } else {
+            navigate(`${firstPathName === "series" ? "/series" : ""}/details/${id}`)
+        }
     }
 
     const IMG_API = "https://image.tmdb.org/t/p/w500"
@@ -29,7 +34,7 @@ export const Movie = ({
             </div>
             <div className='container-dates'>
                 <h3 className="title">{title || original_name}</h3>
-                <span>{vote_average}</span>
+                <span>{vote_average.toFixed(1)}</span>
             </div>
         </div>
     )

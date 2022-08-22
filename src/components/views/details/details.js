@@ -27,7 +27,7 @@ export const Details = () => {
                         <h2>Cast</h2>
                         <div className='cast'>
                             {
-                                cast?.map(actor => <Cast actor={actor} key={actor.credit_id} />)
+                                cast?.map(actor => <Cast actor={actor} key={actor.id} />)
                             }
                         </div>
                     </div>
