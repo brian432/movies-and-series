@@ -639,6 +639,14 @@ form button:hover {
   }
 }
 
+.div-artist {
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: -80px;
+  padding: 0 3rem;
+  letter-spacing: 2px;
+}
+
 .container-popular-movies {
   display: -ms-grid;
   display: grid;
@@ -650,7 +658,7 @@ form button:hover {
 }
 
 @media (max-width: 900px) {
-  .container-popular-movies {
+  .container-popular-movies, .div-artist {
     padding-left: 1rem;
     padding-right: 1rem;
   }

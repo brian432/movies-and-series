@@ -5,11 +5,11 @@ export const GlobalContext = createContext()
 
 export const GlobalProvider = ({ children }) => {
     const { pathname } = useLocation()
-    const series = pathname.split("/")[1]
+    const firstPathName = pathname.split("/")[1]
 
     return (
         <GlobalContext.Provider value={{
-            series
+            firstPathName
         }}>
             {children}
         </GlobalContext.Provider>

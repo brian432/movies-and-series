@@ -7,14 +7,14 @@ const Buttons = ({lengthMovies}) => {
     let query = new URLSearchParams(window.location.search);
     let search = query.get('search');
 
-    const {series} = useContext(GlobalContext)
+    const {firstPathName} = useContext(GlobalContext)
 
-    const { page, genre } = useParams()
+    const { page, genre, artistID, artistName } = useParams()
     const navigate = useNavigate()
 
     const handlePageButton = (e) => {
         let pagina = e.target.name
-        handlePage(pagina, page, genre, navigate, search, series)
+        handlePage(pagina, page, genre, navigate, search, firstPathName, artistID, artistName)
     }
     return (
         <div className='container-buttons'>
