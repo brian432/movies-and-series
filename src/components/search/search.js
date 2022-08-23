@@ -6,7 +6,7 @@ const Search = ({onSubmit}) => {
     
     const handleSubmit=(e)=>{
         e.preventDefault();
-        onSubmit(search)
+        onSubmit(search.replace(/ /g, "-"))
         setSearch("");
         scroll()
     }

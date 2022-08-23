@@ -21,7 +21,7 @@ export const Home = () => {
                     movies.map((movie, indice) => <Movie movie={movie} key={indice.toString()} />)
                 }
             </div>
-            <Buttons lengthMovies={movies.length !== 0 ? true : false} />
+            <Buttons lengthMovies={movies.length} />
         </main>
     )
 }

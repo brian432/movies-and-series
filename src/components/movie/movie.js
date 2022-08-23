@@ -34,7 +34,7 @@ export const Movie = ({
             </div>
             <div className='container-dates'>
                 <h3 className="title">{title || original_name}</h3>
-                <span>{vote_average.toFixed(1)}</span>
+                <span>{vote_average?.toFixed(1)}</span>
             </div>
         </div>
     )
