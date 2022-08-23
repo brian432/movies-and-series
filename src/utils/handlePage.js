@@ -2,8 +2,8 @@ export const handlePage = (pagina, page, genre, navigate, query, firstPathName, 
     if (pagina === "+") {
         if (genre === undefined && !query) {
             page !== undefined ?
-                navigate(`${firstPathName === "series" ? "/series" : firstPathName === "cast" ? `/cast/${artistID}/${artistName}` : ""}/page/${parseInt(page) + 1} `) :
-                navigate(`${firstPathName === "series" ? "/series" : firstPathName === "cast" ? `/cast/${artistID}/${artistName}` : ""}/page/${2} `);
+                navigate(`${firstPathName === "series" ? "/series" : firstPathName === "cast" ? `/cast/${artistID}/${artistName}` : ""}/page/${parseInt(page) + 1}`) :
+                navigate(`${firstPathName === "series" ? "/series" : firstPathName === "cast" ? `/cast/${artistID}/${artistName}` : ""}/page/${2}`);
         } else if (query) {
             page !== undefined ?
                 navigate(`${firstPathName === "series" ? "/series" : ""}/page/${parseInt(page) + 1} /?search=${query}`) :
