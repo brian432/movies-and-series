@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { GlobalContext } from "../context/GlobalState"
 import { getArtistMoviesOrSeries, getMoviesOrSeries, getMoviesOrSeriesDetails, getPopularGenres, getSearchMoviesOrSeries } from "../services/fetchMoviesOrSeries"
 
@@ -7,21 +7,20 @@ import { getArtistMoviesOrSeries, getMoviesOrSeries, getMoviesOrSeriesDetails, g
 export const useMoviesOrSeries = () => {
     const [moviesOrSeries, setMoviesOrSeries] = useState([])
 
-    let query = new URLSearchParams(window.location.search);
-    let search = query.get('search');
+    const { search } = useLocation()
+    const query = search?.slice(8)
 
     const { page, genre, artistID } = useParams()
-
     const { firstPathName } = useContext(GlobalContext)
 
     useEffect(() => {
         firstPathName === "cast" ? getArtistMoviesOrSeries(artistID, page).then(artist => setMoviesOrSeries(artist)) :
-            search !== null ?
-                getSearchMoviesOrSeries(page, search, firstPathName).then(searchMovies => setMoviesOrSeries(searchMovies.results)) :
+            query ?
+                getSearchMoviesOrSeries(page, query, firstPathName).then(searchMovies => setMoviesOrSeries(searchMovies.results)) :
                 genre !== undefined ?
                     getPopularGenres(page, genre, firstPathName).then(popularGenres => setMoviesOrSeries(popularGenres.results)) :
                     getMoviesOrSeries(page, firstPathName).then(movieOrSerie => setMoviesOrSeries(movieOrSerie.results))
-    }, [firstPathName, page, genre, search, artistID])
+    }, [firstPathName, page, genre, query, artistID])
 
     return moviesOrSeries
 }

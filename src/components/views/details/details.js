@@ -6,10 +6,15 @@ import Cast from '../../cast/cast'
 import Trailers from '../../trailer/trailers'
 import { CarouselSimilarMovies } from '../../carousel/Carousel'
 
+import { useContext } from 'react'
+import { GlobalContext } from '../../../context/GlobalState'
+
 const IMG_API = "https://image.tmdb.org/t/p/w500"
 const BACKGROUND_IMG = "https://image.tmdb.org/t/p/original"
 
 export const Details = () => {
+    const { firstPathName } = useContext(GlobalContext)
+
     const { details, cast, similarMovies, trailers } = useMoviesOrSeriesDetails()
     scroll()
     return (
@@ -42,7 +47,7 @@ export const Details = () => {
                 {
                     similarMovies?.length > 0 &&
                     <>
-                        <h1>Peliculas similares</h1>
+                        <h1>{firstPathName === "series" ? "Series" : "Películas"} similares</h1>
                         <CarouselSimilarMovies similarMovies={similarMovies} />
                     </>
                 }

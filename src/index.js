@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import './styles/index.css'
 
@@ -10,12 +10,12 @@ import { GlobalProvider } from './context/GlobalState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <React.StrictMode>
       <GlobalProvider>
         <App />
       </GlobalProvider>
     </React.StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 );
 
