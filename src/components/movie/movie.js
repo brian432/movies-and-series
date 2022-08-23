@@ -12,7 +12,8 @@ export const Movie = ({
         vote_average,
         id,
         media_type
-    }
+    }, 
+    movie
 }) => {
     const navigate = useNavigate()
 
