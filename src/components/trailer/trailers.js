@@ -1,7 +1,5 @@
 import React from "react"
 const Trailers = ({ trailer }) => {
-    console.log(trailer);
-
     return (
         <>
             <h3 className="trailer-title">{trailer.type}</h3>
