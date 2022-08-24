@@ -17,7 +17,7 @@ export const Home = () => {
                 }
                 <div className="container-popular-movies">
                     {
-                        movies.map(movie => <Movie movie={movie} key={`${movie.id}`} />)
+                        movies?.map(movie => <Movie movie={movie} key={`${movie.id}`} />)
                     }
                 </div>
                 <Buttons lengthMovies={movies.length} />

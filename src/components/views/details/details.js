@@ -16,7 +16,7 @@ const BACKGROUND_IMG = "https://image.tmdb.org/t/p/original"
 export const Details = () => {
     const { firstPathName } = useContext(GlobalContext)
     const { details, cast, similarMovies, trailers } = useMoviesOrSeriesDetails()
-    console.log(details);
+
     scroll()
     return (
         <>
