@@ -1,16 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import { useLocation } from "react-router-dom";
 
 export const GlobalContext = createContext()
 
 export const GlobalProvider = ({ children }) => {
-    const [firstPathName, setFirstPathName] = useState()
     const { pathname } = useLocation()
-    const route = pathname.split("/")[1]
-    
-    useEffect(() => {
-        route !== firstPathName  && setFirstPathName(route)
-    }, [route])
+    const firstPathName = pathname.split("/")[1]
 
     return (
         <GlobalContext.Provider value={{
