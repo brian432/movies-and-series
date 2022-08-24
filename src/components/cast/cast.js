@@ -9,7 +9,7 @@ const Cast = ({ actor }) => {
         <div className="div-actores">
             <div className="div-img-actor">
                 <Link to={`/cast/${actor.id}/${actor.name.replace(/ /g, "-")}`} >
-                    <img src={actor.profile_path ? `${IMG_API}${actor?.profile_path}` : img} alt={actor.name} />
+                    <img src={actor?.profile_path ? `${IMG_API}${actor?.profile_path}` : img} alt={actor.name} />
                 </Link>
             </div>
             <p>{actor.name}</p>

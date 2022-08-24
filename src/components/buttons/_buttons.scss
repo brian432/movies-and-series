@@ -4,12 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     button{
         font-size: 1rem;
         border: none;
         background: transparent;
         color: white;
         cursor: pointer;
+        transition: 0.3s;
+        &:hover{
+            scale: 1.05;
+            transition: 0.3s;
+        }
     }
 }

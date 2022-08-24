@@ -135,6 +135,14 @@ header .container-generos #generos .nav-links li {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header .container-generos #generos .nav-links li:hover {
+  scale: 1.05;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 header #hamburguesa {
@@ -193,6 +201,9 @@ header #hamburguesa .linea3 {
 }
 
 @media (max-width: 768px) {
+  header {
+    background-color: #010716;
+  }
   header .container-generos {
     position: absolute;
     padding-top: 10px;
@@ -296,7 +307,7 @@ form button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .container-buttons button {
@@ -305,6 +316,14 @@ form button:hover {
   background: transparent;
   color: white;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.container-buttons button:hover {
+  scale: 1.05;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .mySwiper {
@@ -316,13 +335,12 @@ form button:hover {
   margin-bottom: 1rem;
 }
 
-.mySwiper .container-dates {
+.mySwiper .container-dates, .mySwiper .swiper-pagination {
   display: none;
 }
 
 .mySwiper .carousel-div {
   cursor: pointer;
-  z-index: 9999;
 }
 
 .mySwiper .carousel-div .container-movie {
@@ -363,7 +381,7 @@ form button:hover {
 
 @media (max-width: 500px) {
   .swiper {
-    height: 150px;
+    height: 130px;
   }
 }
 
@@ -388,6 +406,8 @@ form button:hover {
   position: relative;
   cursor: pointer;
   height: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .container-movie .div-img {
@@ -406,6 +426,12 @@ form button:hover {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.container-movie:hover {
+  scale: 1.05;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .container-dates {
@@ -524,6 +550,7 @@ form button:hover {
 
 .info-movies .titulo .puntaje {
   font-size: 1rem;
+  margin-left: 10px;
   color: #f5be08;
 }
 
@@ -533,7 +560,7 @@ form button:hover {
 }
 
 .info-movies .descripcion {
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 300;
   max-width: 800px;
 }
@@ -543,11 +570,14 @@ form button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  margin-top: 1rem;
+  gap: 15px;
 }
 
 .info-movies .cast .div-actores {
   width: 80px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .info-movies .cast .div-actores .div-img-actor {
@@ -558,6 +588,48 @@ form button:hover {
 .info-movies .cast .div-actores .div-img-actor img {
   width: 100%;
   height: auto;
+}
+
+.info-movies .cast .div-actores:hover {
+  scale: 1.05;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.info-movies .genresDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.info-movies .genresDetails div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.info-movies .genresDetails div li {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.info-movies .genresDetails div li:hover {
+  scale: 1.05;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .div-trailers {
@@ -571,6 +643,11 @@ form button:hover {
   grid-column: 1/4;
   gap: 2rem;
   margin: 2rem 0;
+}
+
+.div-trailers .trailer-title {
+  font-weight: 300;
+  margin-bottom: -15px;
 }
 
 .div-trailers .video-responsive {
@@ -641,6 +718,7 @@ form button:hover {
 
 .div-artist {
   width: 100%;
+  font-weight: 300;
   margin-top: 100px;
   margin-bottom: -80px;
   padding: 0 3rem;

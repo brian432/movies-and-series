@@ -21,12 +21,12 @@ const Buttons = ({ lengthMovies }) => {
                 page === undefined && lengthMovies < 20 ?
                     "" :
                     (page !== undefined && parseInt(page)) < 2 && lengthMovies ?
-                        <button name='+' onClick={handlePageButton} >Siguiente</button> :
+                        <button name='+' onClick={handlePageButton} >Siguiente 🢂</button> :
                         page !== undefined && lengthMovies < 20 ?
-                            <button name='-' onClick={handlePageButton} >Anterior</button> :
+                            <button name='-' onClick={handlePageButton} >🢀 Anterior</button> :
                             <>
-                                <button name='-' onClick={handlePageButton} >Anterior</button>
-                                <button name='+' onClick={handlePageButton} >Siguiente</button>
+                                <button name='-' onClick={handlePageButton} >🢀 Anterior</button>
+                                <button name='+' onClick={handlePageButton} >Siguiente 🢂</button>
                             </>
             }
         </div >

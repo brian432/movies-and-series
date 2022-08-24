@@ -8,20 +8,20 @@ import { useParams } from "react-router-dom"
 export const Home = () => {
     const movies = useMoviesOrSeries()
     const { artistName } = useParams()
-
     scroll()
-
     return (
         <main>
-            {
-                artistName && <h3 className="div-artist">Películas y series de {artistName?.replace(/-/g, " ")}</h3>
-            }
-            <div className="container-popular-movies">
+            <>
                 {
-                    movies.map((movie, indice) => <Movie movie={movie} key={indice.toString()} />)
+                    artistName && <h3 className="div-artist">Películas y series de {artistName?.replace(/-/g, " ")}</h3>
                 }
-            </div>
-            <Buttons lengthMovies={movies.length} />
+                <div className="container-popular-movies">
+                    {
+                        movies.map(movie => <Movie movie={movie} key={`${movie.id}`} />)
+                    }
+                </div>
+                <Buttons lengthMovies={movies.length} />
+            </>
         </main>
     )
 }

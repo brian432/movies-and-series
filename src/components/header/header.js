@@ -5,6 +5,7 @@ import { getGenresMoviesOrSeries } from "../../services/fetchGenresMoviesOrSerie
 import { scroll } from '../../utils/scroll'
 
 import Search from '../search/search'
+import { Links } from '../generosLink/generoLink'
 
 export const Header = () => {
     const [clases, setClases] = useState("");
@@ -36,17 +37,21 @@ export const Header = () => {
 
     return (
         <header>
-            <Link to={`/${firstPathName === "series" ? "series" : ""}`} className="logo" >{firstPathName=== "series" ? "Series" : "Peliculas"}</Link>
-            <Link to={`/${firstPathName === "series" ? "" : "series"}`} className="switch" >{firstPathName=== "series" ? "Peliculas" : "Series"}</Link>
+            <Link to={`/${firstPathName === "series" ? "series" : ""}`} className="logo" >{firstPathName === "series" ? "Series" : "Peliculas"}</Link>
+            <Link to={`/${firstPathName === "series" ? "" : "series"}`} className="switch" >{firstPathName === "series" ? "Peliculas" : "Series"}</Link>
             <div className={`${menu !== '' ? 'nav-active container-generos' : 'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>
                     <ul className={`${clases === "" ? "" : "genero-active"} nav-links`}>
-                        {generos.map((genero, indice) =>
-                            <li key={indice}>
-                                <Link to={`${firstPathName === "series" ? "/series" : ""}/genre/${genero.id}`} className="links hover" key={indice} onClick={handleClases} name={genero.name} id={genero.id}>{genero.name}</Link>
-                            </li>
-                        )}
+                        {
+                            generos.map(genero =>
+                                <Links
+                                    genero={genero}
+                                    handleClases={handleClases}
+                                    key={genero.name}
+                                />
+                            )
+                        }
                     </ul>
                 </div>
                 <Search onSubmit={handleSubmit} />

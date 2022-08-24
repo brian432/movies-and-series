@@ -4,6 +4,7 @@ import img from '../../../no-img.jpg'
 
 import Cast from '../../cast/cast'
 import Trailers from '../../trailer/trailers'
+import { Links } from '../../generosLink/generoLink'
 import { CarouselSimilarMovies } from '../../carousel/Carousel'
 
 import { useContext } from 'react'
@@ -14,8 +15,8 @@ const BACKGROUND_IMG = "https://image.tmdb.org/t/p/original"
 
 export const Details = () => {
     const { firstPathName } = useContext(GlobalContext)
-
     const { details, cast, similarMovies, trailers } = useMoviesOrSeriesDetails()
+    console.log(details);
     scroll()
     return (
         <>
@@ -28,14 +29,28 @@ export const Details = () => {
                     <h1 className='titulo'>{details?.title || details?.original_name}<span className='puntaje'>{details?.vote_average?.toFixed(1)}</span></h1>
                     <p>Fecha de estreno: {details?.release_date || details?.first_air_date}</p>
                     <p className="descripcion">{details?.overview}</p>
-                    <div>
-                        <h2>Cast</h2>
-                        <div className='cast'>
-                            {
-                                cast?.map(actor => <Cast actor={actor} key={actor.id} />)
-                            }
+                    {
+                        cast?.length > 0 &&
+                        <div>
+                            <h2>Cast</h2>
+                            <div className='cast'>
+                                {
+                                    cast?.map(actor => <Cast actor={actor} key={actor.name} />)
+                                }
+                            </div>
                         </div>
-                    </div>
+                    }
+                    {
+                        details?.genres.length > 0 &&
+                        <div className='genresDetails'>
+                            <h2>Generos: </h2>
+                            <div>
+                                {
+                                    details?.genres.map(genero => <Links genero={genero} key={genero.name} />)
+                                }
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div className="div-trailers">
                     {

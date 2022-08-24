@@ -10,6 +10,7 @@ import { Details } from './components/views/details/details'
 
 function App() {
   const { firstPathName } = useContext(GlobalContext)
+
   return (
     <>
       <Header />

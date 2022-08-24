@@ -54,6 +54,7 @@
         font-size: clamp(2rem, 4vw, 5rem);
         .puntaje {
             font-size: 1rem;
+            margin-left: 10px;
             color: rgb(245, 190, 8);
             &::before{
                 content: "★";
@@ -62,22 +63,48 @@
         }
     }
     .descripcion {
-        font-size: clamp(0.8rem, 2vw, 1rem);
+        font-size: clamp(1rem, 2vw, 1.2rem);
         font-weight: 300;
         max-width: 800px;
     }
     .cast {
         width: 100%;
         display: flex;
-        gap: 10px;
+        margin-top: 1rem;
+        gap: 15px;
         .div-actores {
             width: 80px;
+            transition: 0.3s;
             .div-img-actor {
                 border-radius: 20px;
                 overflow: hidden;
                 img {
                     width: 100%;
                     height: auto;
+                }
+            }
+            &:hover{
+                scale: 1.05;
+                transition: 0.3s;
+            }
+        }
+    }
+    .genresDetails{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5px;
+            gap: 10px;
+            li {
+                width: max-content;
+                transition: 0.3s;
+                &:hover {
+                    scale: 1.05;
+                    transition: 0.3s;
                 }
             }
         }
@@ -92,6 +119,10 @@
     grid-column: 1/4;
     gap: 2rem;
     margin: 2rem 0;
+    .trailer-title{
+        font-weight: 300;
+        margin-bottom: -15px;
+    }
     .video-responsive {
         position: relative;
         padding-bottom: 56.25%; /* 16/9 ratio */

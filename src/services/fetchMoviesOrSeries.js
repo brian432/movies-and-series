@@ -21,7 +21,7 @@ export const getMoviesOrSeriesDetails = async (movieID, firstPathName) => {
             fetch(`${API_TMDB}/${firstPathName === "series" ? "tv" : "movie"}/${movieID}/videos?${API_KEY}&language=en&page=1`),
         ])
         const [details, cast, similar, trailers] = await Promise.all(response.map(result => result.json()))
-
+        
         return { details, cast, similar, trailers }
     } catch (err) {
         console.log("Get MoviesOrSeriesDetails failed: ", err);
