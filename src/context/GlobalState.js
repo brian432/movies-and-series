@@ -7,7 +7,7 @@ export const GlobalProvider = ({ children }) => {
     const [firstPathName, setFirstPathName] = useState()
     const { pathname } = useLocation()
     const route = pathname.split("/")[1]
-    console.log(firstPathName);
+    
     useEffect(() => {
         route !== firstPathName  && setFirstPathName(route)
     }, [route])
