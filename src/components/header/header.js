@@ -34,7 +34,7 @@ export const Header = () => {
 
     const handleSubmit = useCallback((search) => {
         setMenu("")
-        navigate(`${firstPathName === "series" ? "/series" : ""}/?search=${search}`, { replace: true })
+        navigate(`${firstPathName === "series" ? "/series" : ""}/?search=${search}`)
     }, [navigate, firstPathName])
 
     return (
