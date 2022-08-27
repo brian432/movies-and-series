@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import './styles/index.css'
 
 import App from './App';
-import { GlobalProvider } from './context/GlobalState';
+import { GlobalProvider } from './context/GlobalContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

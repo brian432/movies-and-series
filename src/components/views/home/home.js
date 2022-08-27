@@ -15,7 +15,7 @@ export const Home = () => {
                 {
                     artistName && <h3 className="div-artist">Películas y series de {artistName?.replace(/-/g, " ")}</h3>
                 }
-                <div className="container-popular-movies">
+                <div className="container-popularOrFavs-movies">
                     {
                         movies?.map(movie => <Movie movie={movie} key={`${movie.id}`} />)
                     }

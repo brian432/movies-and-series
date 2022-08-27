@@ -20,7 +20,7 @@ header {
         text-decoration: none;
         color: white;
     }
-    .switch {
+    a {
         color: white;
         text-decoration: none;
     }
@@ -158,4 +158,11 @@ header {
             display: block !important;
         }
     }
+}
+@media (max-width: 450px){
+        .switch{
+            position: absolute;
+            left: 15px;;
+            top: 55px;
+        }
 }
