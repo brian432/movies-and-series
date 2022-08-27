@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import { GlobalContext } from '../../context/GlobalState';
+import { GlobalContext } from '../../context/GlobalContext';
 import { handlePage } from '../../utils/handlePage'
 
 const Buttons = ({ lengthMovies }) => {

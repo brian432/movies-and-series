@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback, useContext } from "react";
-import { GlobalContext } from "../../context/GlobalState";
+import { GlobalContext } from "../../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 import { getGenresMoviesOrSeries } from "../../services/fetchGenresMoviesOrSeries";
 import { scroll } from '../../utils/scroll'
 
 import Search from '../search/search'
 import { Links } from '../generosLink/generoLink'
+import { FavsContext } from "../../context/FavsContext";
 
 export const Header = () => {
     const [clases, setClases] = useState("");
@@ -14,6 +15,7 @@ export const Header = () => {
     const navigate = useNavigate();
 
     const { firstPathName } = useContext(GlobalContext)
+    const { favs } = useContext(FavsContext)
 
     useEffect(() => {
         getGenresMoviesOrSeries(firstPathName).then(generos => setGeneros(generos.genres))
@@ -32,13 +34,17 @@ export const Header = () => {
 
     const handleSubmit = useCallback((search) => {
         setMenu("")
-        navigate(`${firstPathName === "series" ? "/series" : ""}/?search=${search}`)
+        navigate(`${firstPathName === "series" ? "/series" : ""}/?search=${search}`, { replace: true })
     }, [navigate, firstPathName])
 
     return (
         <header>
             <Link to={`/${firstPathName === "series" ? "series" : ""}`} className="logo" >{firstPathName === "series" ? "Series" : "Peliculas"}</Link>
-            <Link to={`/${firstPathName === "series" ? "" : "series"}`} className="switch" >{firstPathName === "series" ? "Peliculas" : "Series"}</Link>
+            <Link to={`/${firstPathName === "series" ? "" : "series"}`}  >{firstPathName === "series" ? "Películas" : "Series"}</Link>
+            {
+                favs?.length > 0 &&
+                <Link to="/favs" className="switch">Favoritos</Link>
+            }
             <div className={`${menu !== '' ? 'nav-active container-generos' : 'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>

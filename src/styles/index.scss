@@ -41,6 +41,15 @@ body::-webkit-scrollbar-thumb{
     border-right:2px solid rgb(13, 18, 29);
 }
 
+.notFound{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center
+}
+
 @import '../components/header/header';
 @import '../components/search/search';
 @import '../components/buttons/buttons';

@@ -40,7 +40,6 @@ export const getPopularGenres = async (page, genero, firstPathName) => {
 }
 
 export const getSearchMoviesOrSeries = async (page = 1, query, firstPathName) => {
-
     try {
         const response = await fetch(`${API_TMDB}/search/${firstPathName === "series" ? "tv?" : "movie?"}${API_KEY}&page=${page}&query=${query}`)
         const searchMovies = await response.json()

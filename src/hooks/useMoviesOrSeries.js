@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import { useLocation, useParams } from 'react-router-dom'
-import { GlobalContext } from "../context/GlobalState"
+import { GlobalContext } from "../context/GlobalContext"
 import { getArtistMoviesOrSeries, getMoviesOrSeries, getMoviesOrSeriesDetails, getPopularGenres, getSearchMoviesOrSeries } from "../services/fetchMoviesOrSeries"
 
 

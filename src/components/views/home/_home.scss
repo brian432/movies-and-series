@@ -1,4 +1,4 @@
-.div-artist{
+.div-artist, .favs-deleted{
     width: 100%;
     font-weight: 300;
     margin-top: 100px;
@@ -7,7 +7,27 @@
     letter-spacing: 2px;
 }
 
-.container-popular-movies{
+.favs-deleted{
+    display: flex;
+    justify-content: flex-end;
+    button{
+        width: 30px;
+        height: 30px;
+        border-radius:30px;
+        font-weight: 900;
+        background-color: transparent;
+        color: white;
+        border:1px solid white;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            scale: 1.2;
+            transition: .3s;
+        }
+    }
+}
+
+.container-popularOrFavs-movies{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 20px;
@@ -16,7 +36,7 @@
 }
 
 @media (max-width: 900px) {
-    .container-popular-movies, .div-artist{
+    .container-popularOrFavs-movies, .div-artist, .favs-deleted{
         padding-left: 1rem;
         padding-right: 1rem;
     }

@@ -4,28 +4,59 @@
     justify-content: space-between;
     align-self: center;
     background-color: rgb(1, 7, 22);
-    color: white;
     font-size: 0.8rem;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     height: 100%;
-    transition: .3s;
-    .div-img{
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .div-img {
         display: flex;
         align-items: center;
         max-height: 420px;
         overflow: hidden;
-        img{
+        img {
             width: 100%;
             height: auto;
             object-fit: cover;
+            transition: 0.3s;
+            &:hover {
+                scale: 1.02;
+                transition: 0.3s;
+            }
         }
     }
-    &:hover{
-        scale: 1.05;
-        transition: .3s;
+    .favourite-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.16);
+        transition: 0.5s;
+        z-index: 9;
+        &:hover {
+            color: rgba(235, 1, 1, 0.918);
+            background-color: rgba(255, 0, 0, 0.16);
+            scale: 1.3;
+            transition: 0.5s;
+        }
+    }
+    .fav-active{
+        transform: rotate(360deg);
+        background-color: rgba(255, 0, 0, 0.377);
+        color: rgba(235, 1, 1, 0.918);
     }
 }
 

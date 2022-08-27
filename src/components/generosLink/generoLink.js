@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { GlobalContext } from "../../context/GlobalState"
+import { GlobalContext } from "../../context/GlobalContext"
 
 export const Links = ({ genero, handleClases }) => {
     const { firstPathName } = useContext(GlobalContext)
