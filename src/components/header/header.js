@@ -40,7 +40,7 @@ export const Header = () => {
     return (
         <header>
             <Link to={`/${firstPathName === "series" ? "series" : ""}`} className="logo" >{firstPathName === "series" ? "Series" : "Peliculas"}</Link>
-            <Link to={`/${firstPathName === "series" ? "" : "series"}`}  >{firstPathName === "series" ? "Películas" : "Series"}</Link>
+            <Link to={`/${firstPathName === "series" ? "" : "series"}`} className="movies-series-link"  >{firstPathName === "series" ? "Películas" : "Series"}</Link>
             {
                 favs?.length > 0 &&
                 <Link to="/favs" className="switch">Favoritos</Link>

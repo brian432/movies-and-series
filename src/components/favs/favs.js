@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { FavsContext } from "../../context/FavsContext"
+import { scroll } from "../../utils/scroll"
 import { Movie } from "../movie/movie"
 
 export const Favs = () => {
@@ -17,6 +18,8 @@ export const Favs = () => {
         (storageFavs === "[]" || storageFavs === null) && navigate('/', { replace: true })
     }, [favs, navigate, storageFavs])
 
+    scroll()
+    
     return (
         <>
             <div className="favs-deleted">
