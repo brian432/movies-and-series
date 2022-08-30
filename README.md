@@ -10,5 +10,5 @@
 
 # Preview
 
-    !["Responsive React App consumiendo la API de The Movie Database (TMDB)"](public\imagenes-readme\version-web-and-movil.png "Responsive React App consumiendo la API de The Movie Database (TMDB)")
+    !["Responsive React App consumiendo la API de The Movie Database (TMDB)"](/imagenes-readme/version-web-and-movil.png "Responsive React App consumiendo la API de The Movie Database (TMDB)")
 
