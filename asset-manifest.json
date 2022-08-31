@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/movies-and-series/static/css/main.69a53177.css",
-    "main.js": "/movies-and-series/static/js/main.28ea124f.js",
+    "main.css": "/movies-and-series/static/css/main.b478b31e.css",
+    "main.js": "/movies-and-series/static/js/main.74599434.js",
     "static/media/no-img.jpg": "/movies-and-series/static/media/no-img.927e37c178efe004cb97.jpg",
     "index.html": "/movies-and-series/index.html",
-    "main.69a53177.css.map": "/movies-and-series/static/css/main.69a53177.css.map",
-    "main.28ea124f.js.map": "/movies-and-series/static/js/main.28ea124f.js.map"
+    "main.b478b31e.css.map": "/movies-and-series/static/css/main.b478b31e.css.map",
+    "main.74599434.js.map": "/movies-and-series/static/js/main.74599434.js.map"
   },
   "entrypoints": [
-    "static/css/main.69a53177.css",
-    "static/js/main.28ea124f.js"
+    "static/css/main.b478b31e.css",
+    "static/js/main.74599434.js"
   ]
 }
