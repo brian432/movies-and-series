@@ -1,5 +1,7 @@
-const API_KEY = "api_key=04c35731a5ee918f014970082a0088b1"
-const GENRE_API = "https://api.themoviedb.org/3/genre/"
+const {
+    REACT_APP_GENRE_API: GENRE_API,
+    REACT_APP_API_KEY: API_KEY
+} = process.env
 
 export const getGenresMoviesOrSeries = async (firstPathName) => {
     try {

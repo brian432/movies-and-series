@@ -22,7 +22,7 @@ export const FavsProvider = ({ children }) => {
         }
     }
 
-    const removeAllFavs = () =>{
+    const removeAllFavs = () => {
         setFavs([])
         localStorage.removeItem('favs')
     }
@@ -30,10 +30,10 @@ export const FavsProvider = ({ children }) => {
     return (
         <FavsContext.Provider value={{
             favs,
-            addOrRemoveFavs, 
+            addOrRemoveFavs,
             removeAllFavs
         }}>
             {children}
         </FavsContext.Provider>
     )
-    }
+}

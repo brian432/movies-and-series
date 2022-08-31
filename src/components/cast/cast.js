@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import img from '../../no-img.jpg'
 
-const IMG_API = "https://image.tmdb.org/t/p/w500"
+const {
+    REACT_APP_IMG_API: IMG_API
+} = process.env
 
 const Cast = ({ actor }) => {
     return (

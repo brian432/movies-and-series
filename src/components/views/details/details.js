@@ -7,8 +7,10 @@ import Trailers from '../../trailer/trailers'
 import { Links } from '../../generosLink/generoLink'
 import { CarouselSimilarMovies } from '../../carousel/Carousel'
 
-const IMG_API = "https://image.tmdb.org/t/p/w500"
-const BACKGROUND_IMG = "https://image.tmdb.org/t/p/original"
+const {
+    REACT_APP_IMG_API: IMG_API,
+    REACT_APP_BACKGROUND_IMG: BACKGROUND_IMG
+} = process.env
 
 export const Details = () => {
     const { details, cast, similarMovies, trailers } = useMoviesOrSeriesDetails()

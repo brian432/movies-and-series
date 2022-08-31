@@ -5,6 +5,10 @@ import { FavsContext } from '../../context/FavsContext'
 
 import img from '../../no-img.jpg'
 
+const {
+    REACT_APP_IMG_API: IMG_API
+} = process.env
+
 export const Movie = ({
     movie: {
         title,
@@ -23,7 +27,6 @@ export const Movie = ({
 
     const favsActive = favs.find(movie => { return movie.id === id })
 
-    const IMG_API = "https://image.tmdb.org/t/p/w500"
     return (
         <div className="container-movie">
             <button className={favsActive ? 'fav-active favourite-btn' : 'favourite-btn'} onClick={handleFavorites}>

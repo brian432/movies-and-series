@@ -1,5 +1,7 @@
-const API_KEY = "api_key=04c35731a5ee918f014970082a0088b1"
-const API_TMDB = "https://api.themoviedb.org/3"
+const {
+    REACT_APP_API_TMDB: API_TMDB,
+    REACT_APP_API_KEY: API_KEY
+} = process.env
 
 export const getMoviesOrSeries = async (page = "1", firstPathName) => {
     try {
