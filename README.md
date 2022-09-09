@@ -10,7 +10,7 @@
 
 # Preview
 
-![version-web-and-movil](https://user-images.githubusercontent.com/80001602/187535499-41921fdc-556e-4a77-a6f4-dd70e6911834.png)
+![version-web-and-movile](https://user-images.githubusercontent.com/80001602/189421258-a400cbb6-b888-480e-bbb8-8fe5624ac770.png)
 
 ![home](https://user-images.githubusercontent.com/80001602/187535505-7b06e7e8-d641-4e16-a4f3-c94fd3dd4d4c.jpeg)
 
