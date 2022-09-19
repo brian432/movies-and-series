@@ -613,4 +613,9 @@ form button:hover {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+@media screen and (max-width: 640px) {
+  .container-popularOrFavs-movies {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
 }/*# sourceMappingURL=index.css.map */
